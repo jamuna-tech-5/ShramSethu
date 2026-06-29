@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 355 78% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 237 39% 17%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 355 78% 56%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 237 39% 11%;
+    --foreground: 210 40% 98%;
+    --card: 237 39% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 237 39% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 355 78% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 237 39% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 237 39% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 237 39% 20%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 237 39% 22%;
+    --input: 237 39% 22%;
+    --ring: 355 78% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-brand {
+    background: linear-gradient(135deg, #E63946 0%, #C1121F 100%);
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, #1A1B3B 0%, #0F1027 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #E63946, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .score-ring {
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: calc(251.2 - (251.2 * var(--score-percent)) / 100);
+    transition: stroke-dashoffset 1s ease-in-out;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-muted; }
+::-webkit-scrollbar-thumb { @apply bg-primary/50 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-primary; }
